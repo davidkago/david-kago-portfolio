@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Macharia Kago | Strategy × Product × Architecture</title>
+  <title>David Macharia Kago | Product Strategy & Systems Architecture</title>
   <style>
     :root {
-      --bg: #0d1117;
-      --card-bg: #161b22;
-      --border: #30363d;
-      --text: #c9d1d9;
-      --text-muted: #8b949e;
-      --heading: #f0f6fc;
-      --accent: #58a6ff;
-      --accent-green: #3fb950;
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --border: #1f2937;
+      --text: #9ca3af;
+      --heading: #f3f4f6;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.1);
       --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
@@ -23,164 +22,170 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: var(--font-main);
-      line-height: 1.6;
-      padding: 2rem 1rem;
+      line-height: 1.7;
+      padding: 3rem 1rem;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
-    /* Header & Hero */
+    /* Hero Header */
     header {
-      padding-bottom: 2.5rem;
+      padding-bottom: 3rem;
       border-bottom: 1px solid var(--border);
       margin-bottom: 3rem;
     }
 
-    .name {
-      font-size: 2.2rem;
-      color: var(--heading);
+    .badge-top {
+      display: inline-block;
+      background: var(--accent-glow);
+      color: var(--accent);
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(56, 189, 248, 0.2);
     }
 
-    .tagline {
-      font-size: 1.15rem;
+    h1 {
+      font-size: 2.8rem;
+      color: var(--heading);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
       color: var(--accent);
-      margin: 0.4rem 0 1rem 0;
       font-weight: 500;
+      margin-bottom: 1.2rem;
     }
 
     .bio {
-      color: var(--text-muted);
-      max-width: 680px;
-      font-size: 1rem;
+      color: var(--text);
+      font-size: 1.05rem;
+      max-width: 720px;
     }
 
-    /* Core Pillars Matrix */
-    .pillars-grid {
+    /* Metrics Grid */
+    .metrics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 3.5rem;
     }
 
-    .pillar-card {
+    .metric-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.25rem;
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
     }
 
-    .pillar-title {
+    .metric-value {
+      font-size: 1.8rem;
+      font-weight: 800;
       color: var(--heading);
-      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      color: var(--text);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
     }
 
-    .pillar-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* Section Headings */
+    /* Section Titles */
     h2.section-title {
-      color: var(--heading);
       font-size: 1.5rem;
+      color: var(--heading);
       margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
-    /* Case Study Card */
-    .case-card {
+    /* Case Study Item */
+    .case-box {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
       transition: border-color 0.2s ease;
     }
 
-    .case-card:hover {
+    .case-box:hover {
       border-color: var(--accent);
     }
 
-    .case-badge {
-      display: inline-block;
-      background: rgba(88, 166, 255, 0.15);
+    .case-meta {
+      font-size: 0.8rem;
       color: var(--accent);
-      font-size: 0.75rem;
+      text-transform: uppercase;
       font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 12px;
-      margin-bottom: 0.8rem;
-    }
-
-    .case-title {
-      color: var(--heading);
-      font-size: 1.25rem;
+      letter-spacing: 0.08em;
       margin-bottom: 0.5rem;
     }
 
-    .case-summary {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
+    .case-title {
+      font-size: 1.4rem;
+      color: var(--heading);
+      margin-bottom: 0.8rem;
+      font-weight: 700;
     }
 
-    .case-details {
+    .case-desc {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .highlights-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
-      background: var(--bg);
-      padding: 1rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.03);
     }
 
-    .case-details strong {
+    .highlights-list strong {
       color: var(--heading);
       display: block;
       margin-bottom: 0.2rem;
     }
 
-    .case-actions {
-      display: flex;
-      gap: 1rem;
-    }
-
     .btn {
       display: inline-block;
       background: var(--accent);
-      color: #000;
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
+      color: #0b0f19;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
       text-decoration: none;
+      transition: opacity 0.2s;
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--text-muted);
+    .btn:hover {
+      opacity: 0.9;
     }
 
     footer {
       text-align: center;
-      color: var(--text-muted);
+      color: var(--text);
       font-size: 0.85rem;
-      margin-top: 4rem;
+      margin-top: 5rem;
       padding-top: 2rem;
       border-top: 1px solid var(--border);
     }
@@ -189,64 +194,61 @@
 <body>
 
   <div class="container">
-    <!-- HERO HEADER -->
+    
+    <!-- HERO -->
     <header>
-      <h1 class="name">David Macharia Kago</h1>
-      <p class="tagline">Strategy × Product × Architecture × AI</p>
+      <span class="badge-top">Portfolio & System Architecture</span>
+      <h1>David Macharia Kago</h1>
+      <p class="subtitle">Strategy × Product Systems × Conversational AI</p>
       <p class="bio">
-        Technical Product Leader & Systems Architect specializing in cross-functional platform engineering, conversational AI systems, and microservices localization.
+        Bridging high-level product strategy with production-ready technical execution. Specializing in enterprise backend systems, scalable microservices architecture, and conversational AI automation.
       </p>
     </header>
 
-    <!-- CORE PILLARS -->
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="pillar-title">1. Code</div>
-        <div class="pillar-desc">Spring Boot, Docker, Java, Concurrency & Microservices.</div>
+    <!-- METRICS BAR -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">Spring Boot</div>
+        <div class="metric-label">Microservices & i18n</div>
       </div>
-      <div class="pillar-card">
-        <div class="pillar-title">2. Design & BA</div>
-        <div class="pillar-desc">User Story Mapping, API Contracts, BRD to Release.</div>
+      <div class="metric-card">
+        <div class="metric-value">Conversational</div>
+        <div class="metric-label">AI IVAs & RAG Workflows</div>
       </div>
-      <div class="pillar-card">
-        <div class="pillar-title">3. AI & Automation</div>
-        <div class="pillar-desc">RAG Frameworks, IVAs, Intent Models & Guardrails.</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-title">4. Strategy</div>
-        <div class="pillar-desc">Business Transformation, CSPO Leadership, Measurable Impact.</div>
+      <div class="metric-card">
+        <div class="metric-value">CSPO</div>
+        <div class="metric-label">Agile Product Leadership</div>
       </div>
     </div>
 
-    <!-- FEATURED CASE STUDIES -->
-    <h2 class="section-title">Featured Case Studies</h2>
+    <!-- CASE STUDIES SECTION -->
+    <h2 class="section-title">Selected Case Studies & Systems</h2>
 
-    <div class="case-card">
-      <span class="case-badge">CODE / ARCHITECTURE</span>
-      <h3 class="case-title">Enterprise Java & Multithreaded Localization (D387)</h3>
-      <p class="case-summary">
-        Engineered a distributed Spring Boot service to handle concurrent multi-language translation and dynamic timezone conversion without blocking the primary application thread.
+    <div class="case-box">
+      <div class="case-meta">Code Architecture & Concurrency</div>
+      <h3 class="case-title">Enterprise Java & Multithreaded Localization Platform</h3>
+      <p class="case-desc">
+        Engineered a distributed Spring Boot service to handle concurrent multi-language translation and dynamic timezone conversion without blocking core thread execution loops.
       </p>
 
-      <div class="case-details">
+      <div class="highlights-list">
         <div>
-          <strong>Core Problem:</strong>
-          Blocking I/O causing latency spikes during multi-region timezone translations.
+          <strong>Core Challenge</strong>
+          Blocking I/O operations creating latency bottlenecks during multi-region timezone translation requests.
         </div>
         <div>
-          <strong>Architectural Decision:</strong>
-          Implemented ThreadPoolTaskExecutor over synchronous execution to isolate worker threads.
+          <strong>Solution Design</strong>
+          Deployed ThreadPoolTaskExecutor isolation paired with clean API abstractions and robust error handling.
         </div>
       </div>
 
-      <div class="case-actions">
-        <a href="https://github.com/davidkago/java-portfolio-2025" class="btn" target="_blank">View Repository</a>
-      </div>
+      <a href="https://github.com/davidkago/java-portfolio-2025" class="btn" target="_blank">Explore Repository & Architecture</a>
     </div>
 
     <footer>
-      &copy; 2026 David Macharia Kago · Built with clean HTML & CSS on GitHub Pages
+      &copy; 2026 David Macharia Kago · Built for high-impact engineering & product execution
     </footer>
+
   </div>
 
 </body>
