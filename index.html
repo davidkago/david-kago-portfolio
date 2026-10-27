@@ -1,376 +1,298 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Macharia Kago | Product Strategy & Systems Architecture</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="David Kago connects business needs with technology to build clear, useful solutions.">
+  <title>David Kago — Product, Business, Technology</title>
   <style>
     :root {
-      --bg: #fafafa;
-      --card-bg: #ffffff;
-      --border: #e5e7eb;
-      --border-hover: #d1d5db;
-      --text-main: #111827;
-      --text-muted: #4b5563;
-      --text-subtle: #6b7280;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.06);
-      --badge-bg: #f3f4f6;
-      --badge-text: #1f2937;
-      --font-main: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --ink: #18221f;
+      --muted: #64716b;
+      --paper: #f8f8f4;
+      --card: #ffffff;
+      --line: #e1e6df;
+      --accent: #245e4b;
+      --accent-soft: #e8f0eb;
+      --max: 1080px;
+      --radius: 20px;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      font-family: var(--font-main);
-      line-height: 1.65;
-      padding: 0 1.25rem 4rem 1.25rem;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #76a995; outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; gap: 20px; }
+    .brand { text-decoration: none; font-weight: 750; letter-spacing: -.04em; font-size: 1.08rem; }
+    nav { display: flex; gap: 26px; align-items: center; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .92rem; }
+    nav a:hover { color: var(--accent); }
+    .hero { padding: clamp(62px, 10vw, 120px) 0 74px; max-width: 850px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .14em; font-size: .76rem; font-weight: 750; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.8rem); letter-spacing: -.075em; line-height: .99; font-weight: 720; max-width: 850px; margin: 20px 0 24px; }
+    .hero-copy { max-width: 590px; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.28rem); }
+    .guide { display: flex; align-items: center; gap: 12px; margin-top: 34px; font-weight: 700; text-decoration: none; width: fit-content; }
+    .guide .arrow { display: grid; place-items: center; border: 1px solid #cbd7ce; border-radius: 50%; width: 38px; height: 38px; transition: transform .2s, background .2s; }
+    .guide:hover .arrow { transform: translateY(3px); background: var(--accent-soft); }
+    section { scroll-margin-top: 28px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 24px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); letter-spacing: -.055em; line-height: 1.1; margin-bottom: 8px; }
+    .section-intro { color: var(--muted); max-width: 500px; margin-bottom: 0; }
+    .paths { padding: 34px 0 90px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .path-card { display: flex; flex-direction: column; min-height: 205px; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); text-decoration: none; transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .path-card:hover { border-color: #b5c9bb; transform: translateY(-3px); box-shadow: 0 12px 30px #17241b0a; }
+    .card-top { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .78rem; }
+    .card-icon { width: 38px; height: 38px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); border-radius: 12px; font-size: 1.15rem; }
+    .path-card h3 { font-size: 1.45rem; letter-spacing: -.04em; margin: 22px 0 5px; }
+    .path-card p { color: var(--muted); margin-bottom: 18px; }
+    .card-link { margin-top: auto; color: var(--accent); font-weight: 700; font-size: .9rem; }
+    .personal { margin-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 24px; border: 1px solid var(--line); background: #f0f2ec; border-radius: var(--radius); padding: 25px 28px; }
+    .personal h3 { margin-bottom: 4px; font-size: 1.3rem; letter-spacing: -.035em; }
+    .personal p { margin: 0; color: var(--muted); }
+    .personal a { white-space: nowrap; color: var(--accent); font-weight: 750; text-decoration: none; }
+    .case-study { padding: 80px 0; background: #eef1eb; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .case-wrap { max-width: 850px; }
+    .case-meta { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .82rem; margin-bottom: 22px; }
+    .case-study h2 { font-size: clamp(2.2rem, 5vw, 4rem); max-width: 720px; margin: 14px 0 18px; }
+    .case-lead { max-width: 670px; color: #4e5b54; font-size: 1.13rem; }
+    .case-blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 36px 0 52px; }
+    .case-stat { background: #fff; border: 1px solid var(--line); border-radius: 15px; padding: 19px; }
+    .case-stat strong { display: block; font-size: 1rem; margin-bottom: 6px; }
+    .case-stat span { color: var(--muted); font-size: .9rem; }
+    .case-content { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; }
+    .case-content h3 { font-size: 1.2rem; letter-spacing: -.03em; margin-bottom: 10px; }
+    .case-content p, .case-content li { color: #536057; }
+    .case-content ul { padding-left: 19px; }
+    .case-content li { margin: 0 0 12px; }
+    .case-note { margin-top: 28px; border-left: 3px solid #9ab7a5; padding: 4px 0 4px 15px; color: var(--muted); font-size: .9rem; }
+    .about { padding: 84px 0; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: start; }
+    .about h2 { max-width: 390px; }
+    .about-copy { color: var(--muted); font-size: 1.05rem; }
+    .about-themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+    .theme { padding: 18px; background: white; border: 1px solid var(--line); border-radius: 15px; }
+    .theme strong { display: block; margin-bottom: 7px; }
+    .theme span { color: var(--muted); font-size: .9rem; }
+    .contact { padding: 70px 0; background: #1d2c25; color: #f6f7f2; }
+    .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+    .contact h2 { max-width: 570px; font-size: clamp(2.2rem, 5vw, 4rem); }
+    .contact p { color: #c0cbc3; max-width: 470px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-links a, .contact-links button { appearance: none; cursor: pointer; font: inherit; color: inherit; text-decoration: none; border: 1px solid #50645a; border-radius: 999px; padding: 10px 16px; font-size: .92rem; background: transparent; }
+    .contact-links a:hover, .contact-links button:hover { background: #31463b; }
+    .email-reveal { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+    .email-reveal[hidden] { display: none; }
+    .email-address { font-weight: 650; overflow-wrap: anywhere; }
+    .copy-email { appearance: none; cursor: pointer; border: 1px solid #7e9688; border-radius: 999px; padding: 8px 13px; color: #f6f7f2; background: #31463b; font: inherit; font-size: .88rem; }
+    .copy-email:hover { background: #40594b; }
+    .copy-status { color: #c0cbc3; font-size: .85rem; margin: 0; }
+    footer { padding: 20px 0; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: .82rem; }
+    .resume { font-weight: 700; color: var(--accent); }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .topbar { padding: 18px 0; }
+      nav { gap: 15px; }
+      nav a { font-size: .85rem; }
+      .hero { padding-top: 68px; }
+      .grid, .case-content, .about-grid { grid-template-columns: 1fr; }
+      .path-card { min-height: 180px; }
+      .personal, .contact-inner { align-items: flex-start; flex-direction: column; }
+      .personal { padding: 22px; }
+      .case-blocks { grid-template-columns: 1fr; }
+      .case-study, .about { padding: 62px 0; }
+      .about-grid { gap: 18px; }
+      .about-themes { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
     }
-
-    /* NAVIGATION */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 0 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 3.5rem;
-    }
-
-    .nav-logo {
-      color: var(--text-main);
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.15s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-main);
-    }
-
-    /* HERO HEADER */
-    header {
-      padding-bottom: 3.5rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 3.5rem;
-    }
-
-    .badge-top {
-      display: inline-block;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.35rem 0.85rem;
-      border-radius: 20px;
-      margin-bottom: 1.25rem;
-      border: 1px solid var(--border);
-    }
-
-    h1 {
-      font-size: 2.75rem;
-      color: var(--text-main);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
-      line-height: 1.15;
-    }
-
-    .subtitle {
-      font-size: 1.2rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1.25rem;
-    }
-
-    .bio {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 720px;
-    }
-
-    /* METRICS / HIGHLIGHTS BAR */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .metric-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-    }
-
-    .metric-value {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 0.25rem;
-      letter-spacing: -0.02em;
-    }
-
-    .metric-label {
-      font-size: 0.825rem;
-      color: var(--text-subtle);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 600;
-    }
-
-    /* SECTION HEADINGS */
-    h2.section-title {
-      font-size: 1.5rem;
-      color: var(--text-main);
-      margin-bottom: 1.75rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    /* CASE STUDY CARD */
-    .case-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2.25rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-      transition: all 0.2s ease;
-    }
-
-    .case-box:hover {
-      border-color: var(--border-hover);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transform: translateY(-1px);
-    }
-
-    .case-meta {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-    }
-
-    .case-title {
-      font-size: 1.4rem;
-      color: var(--text-main);
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .case-desc {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .highlights-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      background: #f8fafc;
-      padding: 1.25rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      margin-bottom: 1.75rem;
-      border: 1px solid var(--border);
-    }
-
-    .highlights-list strong {
-      color: var(--text-main);
-      display: block;
-      margin-bottom: 0.25rem;
-      font-weight: 600;
-    }
-
-    .highlights-list p {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--text-main);
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.875rem;
-      padding: 0.65rem 1.25rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.15s ease;
-    }
-
-    .btn:hover {
-      background: #1f2937;
-    }
-
-    /* ABOUT & CONTACT SECTIONS */
-    .info-section {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2.25rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-    }
-
-    .info-section p {
-      color: var(--text-muted);
-      font-size: 0.975rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-links {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .contact-links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text-subtle);
-      font-size: 0.85rem;
-      margin-top: 5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 640px) {
-      .highlights-list { grid-template-columns: 1fr; }
-      h1 { font-size: 2.2rem; }
-    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
   </style>
 </head>
 <body>
-
-  <div class="container">
-    
-    <!-- NAVIGATION BAR -->
-    <nav>
-      <a href="#" class="nav-logo">David Kago</a>
-      <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <header class="wrap topbar">
+    <a class="brand" href="#home" aria-label="David Kago home">David Kago<span aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <!-- HERO -->
-    <header>
-      <span class="badge-top">Systems Architecture & Product Management</span>
-      <h1>David Macharia Kago</h1>
-      <p class="subtitle">Strategy × Product Systems × Conversational AI</p>
-      <p class="bio">
-        Bridging high-level product strategy with production-ready technical execution. Specializing in enterprise backend microservices, scalable API architecture, and conversational AI automation.
-      </p>
-    </header>
+  <main>
+    <section class="wrap hero" id="home">
+      <div class="eyebrow">Product · Business · Technology</div>
+      <h1>I make business and technology work as one.</h1>
+      <p class="hero-copy">I turn business needs into clear technical solutions.</p>
+      <a class="guide" href="#work"><span>Take a look around.</span><span class="arrow" aria-hidden="true">↓</span></a>
+    </section>
 
-    <!-- METRICS / HIGHLIGHTS -->
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-value">Spring Boot</div>
-        <div class="metric-label">Microservices & i18n</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">Conversational AI</div>
-        <div class="metric-label">IVAs & RAG Workflows</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">CSPO</div>
-        <div class="metric-label">Agile Product Leadership</div>
-      </div>
-    </div>
-
-    <!-- PROJECTS SECTION -->
-    <h2 class="section-title" id="projects">Selected Case Studies</h2>
-
-    <div class="case-box">
-      <div class="case-meta">Code Architecture & Concurrency</div>
-      <h3 class="case-title">Enterprise Java & Multithreaded Localization Platform</h3>
-      <p class="case-desc">
-        Engineered a distributed Spring Boot service to handle concurrent multi-language translation and dynamic timezone conversion without blocking core thread execution loops.
-      </p>
-
-      <div class="highlights-list">
+    <section class="wrap paths" id="work" aria-labelledby="work-title">
+      <div class="section-head">
         <div>
-          <strong>Core Challenge</strong>
-          <p>Blocking I/O operations causing latency bottlenecks during multi-region timezone translation requests.</p>
+          <div class="eyebrow">Choose a path</div>
+          <h2 id="work-title">A few ways I can help.</h2>
+          <p class="section-intro">Choose a path to see how I approach problems and turn ideas into working solutions.</p>
         </div>
+        <a class="resume" href="#contact">Résumé ↗</a>
+      </div>
+      <div class="grid">
+        <a class="path-card" href="#case-study">
+          <div class="card-top"><span>01 / PRODUCT</span><span class="card-icon" aria-hidden="true">◉</span></div>
+          <h3>Product</h3><p>From problem to product.</p><span class="card-link">See selected work ↗</span>
+        </a>
+        <a class="path-card" href="#case-study">
+          <div class="card-top"><span>02 / ANALYSIS</span><span class="card-icon" aria-hidden="true">⌕</span></div>
+          <h3>Business Analysis</h3><p>From ambiguity to clarity.</p><span class="card-link">See how I work ↗</span>
+        </a>
+        <a class="path-card" href="#case-study">
+          <div class="card-top"><span>03 / SOLUTIONS</span><span class="card-icon" aria-hidden="true">⌘</span></div>
+          <h3>Technical Solutions</h3><p>From business need to system.</p><span class="card-link">Explore a case study ↗</span>
+        </a>
+        <a class="path-card" href="#case-study">
+          <div class="card-top"><span>04 / AI</span><span class="card-icon" aria-hidden="true">✳</span></div>
+          <h3>AI &amp; Automation</h3><p>From capability to application.</p><span class="card-link">Explore a case study ↗</span>
+        </a>
+      </div>
+      <div class="personal">
+        <div><h3>The person behind the work.</h3><p>Film, improv, books, public speaking, giving back, and being a dad.</p></div>
+        <a href="#about">Get to know me ↗</a>
+      </div>
+    </section>
+
+    <section class="case-study" id="case-study" aria-labelledby="case-title">
+      <div class="wrap case-wrap">
+        <div class="case-meta"><span>SELECTED WORK / 01</span><span>H&amp;R Block · Conversational AI</span></div>
+        <div class="eyebrow">Product · Business Analysis · Delivery</div>
+        <h2 id="case-title">Making conversational AI work for customers.</h2>
+        <p class="case-lead">I worked across product, business analysis, and delivery to help improve conversational AI experiences. My work connected customer needs with technical behavior, testing, and production performance.</p>
+
+        <div class="case-blocks" aria-label="Areas of focus">
+          <div class="case-stat"><strong>Requirements</strong><span>Turn business needs into clear, testable expectations.</span></div>
+          <div class="case-stat"><strong>Validation</strong><span>Use test scenarios to check expected behavior.</span></div>
+          <div class="case-stat"><strong>Production issues</strong><span>Help investigate issues and support follow-through.</span></div>
+        </div>
+
+        <div class="case-content">
+          <div>
+            <h3>The challenge</h3>
+            <p>Conversational AI needs to do more than recognize a customer's words. It needs to respond appropriately, handle unexpected behavior, and provide a useful path forward.</p>
+            <p>That takes clear requirements, realistic test scenarios, and a way to investigate issues that appear in production.</p>
+          </div>
+          <div>
+            <h3>What I contributed</h3>
+            <ul>
+              <li>Helped translate business needs into user stories and acceptance criteria.</li>
+              <li>Worked on test scenarios to check whether conversational AI behaved as expected.</li>
+              <li>Helped investigate production issues and coordinate follow-through across business and technical teams.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>How I approached it</h3>
+            <p>I connected three things: what the customer needed, what the system should do, and how the team could verify the result.</p>
+          </div>
+          <div>
+            <h3>What this demonstrates</h3>
+            <ul>
+              <li>Product thinking grounded in customer needs.</li>
+              <li>Business analysis that translates into testable requirements.</li>
+              <li>Technical delivery focused on behavior and production quality.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="case-note"><strong>Before publishing:</strong> add only approved metrics and sanitized artifacts. Confirm the definitions and external-use permission for any program-level results. Do not include internal documents, customer data, or confidential implementation details.</p>
+      </div>
+    </section>
+
+    <section class="wrap about" id="about" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div><div class="eyebrow">A little about me</div><h2 id="about-title">Curious about how things work. Interested in making them better.</h2></div>
         <div>
-          <strong>Solution Architecture</strong>
-          <p>Deployed ThreadPoolTaskExecutor isolation paired with clean API abstractions and resilient error handling.</p>
+          <p class="about-copy">I like work that brings people, business needs, and technology together. Outside work, I make things, keep learning how to communicate, and make time for the people and causes that matter to me.</p>
+          <div class="about-themes">
+            <div class="theme"><strong>Making things</strong><span>Filmmaking, improv, and creative projects.</span></div>
+            <div class="theme"><strong>Finding my voice</strong><span>Public speaking, Toastmasters, and learning by doing.</span></div>
+            <div class="theme"><strong>Life beyond work</strong><span>Books, volunteering, and being a dad.</span></div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <a href="https://github.com/davidkago/portfolio" class="btn" target="_blank">Explore Architecture & Code</a>
-    </div>
-
-    <!-- ABOUT SECTION -->
-    <h2 class="section-title" id="about">About</h2>
-    <div class="info-section">
-      <p>
-        I specialize in turning complex business objectives into executable technical platforms. With background across AI systems analysis, product strategy, and cloud application platforms, I help teams build high-performing, resilient products.
-      </p>
-    </div>
-
-    <!-- CONTACT SECTION -->
-    <h2 class="section-title" id="contact">Contact</h2>
-    <div class="info-section">
-      <p>Interested in collaborating or discussing systems architecture?</p>
-      <div class="contact-links">
-        <a href="https://github.com/davidkago" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/davidkago" target="_blank">LinkedIn</a>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-inner">
+        <div>
+          <div class="eyebrow" style="color:#a9c9b6">Contact</div>
+          <h2 id="contact-title">Think I could be a fit? Let's talk.</h2>
+          <p>Interested in working together? I'd love to hear from you.</p>
+          <div class="contact-links">
+            <button type="button" id="email-toggle" aria-expanded="false" aria-controls="email-reveal">Email +</button>
+            <a href="https://www.linkedin.com/in/-davidkago" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <!-- Replace https://github.com/ with your personal GitHub profile URL when ready. -->
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+          <div class="email-reveal" id="email-reveal" hidden>
+            <span class="email-address" id="email-address">dvmashah@gmail.com</span>
+            <button class="copy-email" type="button" id="copy-email">Copy email</button>
+            <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <footer>
-      &copy; 2026
-    </footer>
+  <footer class="wrap"><span>© <span id="year">2026</span> David Kago</span><span>Built around clear thinking and useful work.</span></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  </div>
+    const emailToggle = document.getElementById('email-toggle');
+    const emailReveal = document.getElementById('email-reveal');
+    const copyEmailButton = document.getElementById('copy-email');
+    const emailAddress = document.getElementById('email-address');
+    const copyStatus = document.getElementById('copy-status');
+    const email = emailAddress.textContent.trim();
 
+    emailToggle.addEventListener('click', () => {
+      const willShow = emailReveal.hidden;
+      emailReveal.hidden = !willShow;
+      emailToggle.setAttribute('aria-expanded', String(willShow));
+      emailToggle.textContent = willShow ? 'Email −' : 'Email +';
+      if (willShow) copyEmailButton.focus();
+    });
+
+    copyEmailButton.addEventListener('click', async () => {
+      copyStatus.textContent = '';
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          // Fallback for local-file previews or browsers without Clipboard API access.
+          const temporaryInput = document.createElement('textarea');
+          temporaryInput.value = email;
+          temporaryInput.setAttribute('readonly', '');
+          temporaryInput.style.position = 'fixed';
+          temporaryInput.style.opacity = '0';
+          document.body.appendChild(temporaryInput);
+          temporaryInput.select();
+          const copied = document.execCommand('copy');
+          temporaryInput.remove();
+          if (!copied) throw new Error('Clipboard copy was not available.');
+        }
+        copyStatus.textContent = 'Email copied to clipboard.';
+        copyEmailButton.textContent = 'Copied ✓';
+      } catch (error) {
+        copyStatus.textContent = 'Copy was blocked by your browser. Select the email above and copy it manually.';
+        copyEmailButton.textContent = 'Try again';
+      }
+    });
+  </script>
 </body>
 </html>
