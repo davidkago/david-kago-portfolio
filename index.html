@@ -6,293 +6,156 @@
   <title>David Macharia Kago | Product Strategy & Systems Architecture</title>
   <style>
     :root {
-      --bg: #0b0f19;
-      --card-bg: #111827;
-      --border: #1f2937;
-      --text: #9ca3af;
-      --heading: #f3f4f6;
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.1);
-      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --bg: #fafafa;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+      --border-hover: #d1d5db;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --text-subtle: #6b7280;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.06);
+      --badge-bg: #f3f4f6;
+      --badge-text: #1f2937;
+      --font-main: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg);
-      color: var(--text);
+      color: var(--text-main);
       font-family: var(--font-main);
-      line-height: 1.7;
-      padding: 0 1rem 3rem 1rem;
+      line-height: 1.65;
+      padding: 0 1.25rem 4rem 1.25rem;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
-    /* Navbar */
+    /* NAVIGATION */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
+      padding: 2rem 0 1.5rem 0;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
 
     .nav-logo {
-      color: var(--heading);
+      color: var(--text-main);
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       text-decoration: none;
+      letter-spacing: -0.02em;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--text);
+      color: var(--text-muted);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 500;
-      transition: color 0.2s;
+      transition: color 0.15s ease;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
+      color: var(--text-main);
     }
 
-    /* Hero Header */
+    /* HERO HEADER */
     header {
-      padding-bottom: 3rem;
+      padding-bottom: 3.5rem;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
 
     .badge-top {
       display: inline-block;
-      background: var(--accent-glow);
-      color: var(--accent);
+      background: var(--badge-bg);
+      color: var(--badge-text);
       font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.3rem 0.8rem;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.85rem;
       border-radius: 20px;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(56, 189, 248, 0.2);
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
     }
 
     h1 {
-      font-size: 2.8rem;
-      color: var(--heading);
+      font-size: 2.75rem;
+      color: var(--text-main);
       font-weight: 800;
       letter-spacing: -0.03em;
       margin-bottom: 0.5rem;
+      line-height: 1.15;
     }
 
     .subtitle {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
     }
 
     .bio {
-      color: var(--text);
+      color: var(--text-muted);
       font-size: 1.05rem;
       max-width: 720px;
     }
 
-    /* Metrics Grid */
+    /* METRICS / HIGHLIGHTS BAR */
     .metrics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
       margin-bottom: 3.5rem;
     }
 
     .metric-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     }
 
     .metric-value {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--heading);
-      margin-bottom: 0.3rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
     }
 
     .metric-label {
-      font-size: 0.85rem;
-      color: var(--text);
+      font-size: 0.825rem;
+      color: var(--text-subtle);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      font-weight: 600;
     }
 
-    /* Section Titles */
+    /* SECTION HEADINGS */
     h2.section-title {
       font-size: 1.5rem;
-      color: var(--heading);
-      margin-bottom: 1.5rem;
+      color: var(--text-main);
+      margin-bottom: 1.75rem;
       font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
-    /* Case Study Item */
+    /* CASE STUDY CARD */
     .case-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      transition: border-color 0.2s ease;
-    }
-
-    .case-box:hover {
-      border-color: var(--accent);
-    }
-
-    .case-meta {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-    }
-
-    .case-title {
-      font-size: 1.4rem;
-      color: var(--heading);
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-    }
-
-    .case-desc {
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .highlights-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 1.2rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-    }
-
-    .highlights-list strong {
-      color: var(--heading);
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #0b0f19;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text);
-      font-size: 0.85rem;
-      margin-top: 5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <!-- NAVIGATION BAR -->
-    <nav>
-      <a href="#" class="nav-logo">DK.</a>
-      <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- HERO -->
-    <header>
-      <span class="badge-top">Portfolio & System Architecture</span>
-      <h1>David Macharia Kago</h1>
-      <p class="subtitle">Strategy × Product Systems × Conversational AI</p>
-      <p class="bio">
-        Bridging high-level product strategy with production-ready technical execution. Specializing in enterprise backend systems, scalable microservices architecture, and conversational AI automation.
-      </p>
-    </header>
-
-    <!-- METRICS BAR -->
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <div class="metric-value">Spring Boot</div>
-        <div class="metric-label">Microservices & i18n</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">Conversational</div>
-        <div class="metric-label">AI IVAs & RAG Workflows</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-value">CSPO</div>
-        <div class="metric-label">Agile Product Leadership</div>
-      </div>
-    </div>
-
-    <!-- CASE STUDIES SECTION -->
-    <h2 class="section-title" id="projects">Selected Case Studies & Systems</h2>
-
-    <div class="case-box">
-      <div class="case-meta">Code Architecture & Concurrency</div>
-      <h3 class="case-title">Enterprise Java & Multithreaded Localization Platform</h3>
-      <p class="case-desc">
-        Engineered a distributed Spring Boot service to handle concurrent multi-language translation and dynamic timezone conversion without blocking core thread execution loops.
-      </p>
-
-      <div class="highlights-list">
-        <div>
-          <strong>Core Challenge</strong>
-          Blocking I/O operations creating latency bottlenecks during multi-region timezone translation requests.
-        </div>
-        <div>
-          <strong>Solution Design</strong>
-          Deployed ThreadPoolTaskExecutor isolation paired with clean API abstractions and robust error handling.
-        </div>
-      </div>
-
-      <a href="https://github.com/davidkago/java-portfolio-2025" class="btn" target="_blank">Explore Repository & Architecture</a>
-    </div>
-
-    <footer>
-      &copy; 2026 David Macharia Kago · Built for high-impact engineering & product execution
-    </footer>
-
-  </div>
-
-</body>
-</html>
+      background: var(--card-
