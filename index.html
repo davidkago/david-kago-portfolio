@@ -23,12 +23,47 @@
       color: var(--text);
       font-family: var(--font-main);
       line-height: 1.7;
-      padding: 3rem 1rem;
+      padding: 0 1rem 3rem 1rem;
     }
 
     .container {
       max-width: 960px;
       margin: 0 auto;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .nav-logo {
+      color: var(--heading);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
     }
 
     /* Hero Header */
@@ -86,7 +121,6 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1.5rem;
-      position: relative;
     }
 
     .metric-value {
@@ -109,7 +143,6 @@
       color: var(--heading);
       margin-bottom: 1.5rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
     }
 
     /* Case Study Item */
@@ -195,6 +228,16 @@
 
   <div class="container">
     
+    <!-- NAVIGATION BAR -->
+    <nav>
+      <a href="#" class="nav-logo">DK.</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
     <!-- HERO -->
     <header>
       <span class="badge-top">Portfolio & System Architecture</span>
@@ -222,7 +265,7 @@
     </div>
 
     <!-- CASE STUDIES SECTION -->
-    <h2 class="section-title">Selected Case Studies & Systems</h2>
+    <h2 class="section-title" id="projects">Selected Case Studies & Systems</h2>
 
     <div class="case-box">
       <div class="case-meta">Code Architecture & Concurrency</div>
